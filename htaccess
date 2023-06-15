@@ -1,0 +1,17 @@
+# Created by https://www.htaccessbuilder.com/
+# Thu, 15th June 2023
+<IfModule mod_rewrite.c>
+
+# Enable Rewrite Engine
+RewriteEngine On
+RewriteBase /
+
+# Redirect from www.
+RewriteCond %{HTTP_HOST} ^www.https://renew-homes-services.com$
+RewriteRule (.*) https://https://renew-homes-services.com/$1 [R=301,L] 
+
+# Force clients to use https
+RewriteCond %{HTTPS} !=on
+RewriteRule (.*) https://https://renew-homes-services.com/$1 [R=301,L]
+
+</IfModule>
