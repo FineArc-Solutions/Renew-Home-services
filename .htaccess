@@ -17,6 +17,10 @@ RewriteRule (.*) https://https://renew-homes-services.com/$1 [R=301,L]
 # Redirect Urls (Permanent)
 RewriteRule ^$  https://renew-homes-services.com [R=301,L]
 
+# Redirects Url
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
 
 # Append /
 RewriteCond %{REQUEST_URI} !^.*/$
