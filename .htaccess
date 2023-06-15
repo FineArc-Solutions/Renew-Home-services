@@ -1,3 +1,5 @@
+# Created by https://www.htaccessbuilder.com/
+# Thu, 15th June 2023
 <IfModule mod_rewrite.c>
 
 # Enable Rewrite Engine
@@ -12,13 +14,19 @@ RewriteRule (.*) https://https://renew-homes-services.com/$1 [R=301,L]
 RewriteCond %{HTTPS} !=on
 RewriteRule (.*) https://https://renew-homes-services.com/$1 [R=301,L]
 
-# Expiry header image tags
-ExpiresActive On
-ExpiresByType text/html "access plus 2 days"
-ExpiresByType image/gif "access plus 60 days"
-ExpiresByType image/jpg "access plus 60 days"
-ExpiresByType image/png "access plus 60 days"
-ExpiresByType application/x-javascript "access plus 60 days"
-ExpiresByType text/css "access plus 60 days"
-ExpiresByType image/x-icon "access plus 360 days"
+# Redirect Urls (Permanent)
+RewriteRule ^$  https://renew-homes-services.com [R=301,L]
+
+
+# Append /
+RewriteCond %{REQUEST_URI} !^.*/$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_METHOD} !^POST$
+RewriteRule (.*) $1/ [R=301,L]
+
+# Redirect index.php to /
+RewriteCond %{QUERY_STRING} ^$
+RewriteCond %{REQUEST_METHOD} !^POST$
+RewriteRule ^index\.html$ / [R=301,L]
+
 </IfModule>
